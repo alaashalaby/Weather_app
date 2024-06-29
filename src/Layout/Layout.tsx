@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import Header from "../components/Header/Header";
+import WeatherContainer from "../components/Weather/WeatherContainer";
 const Layout = () => {
   const [isDarkMode, setIsDarkMode] = useState(false);
   useEffect(() => {
@@ -25,7 +26,8 @@ const Layout = () => {
   };
   return (
     <>
-      <Header handleToggleTheme={handleToggleTheme} isDarkMode={isDarkMode} />
+          <Header handleToggleTheme={handleToggleTheme} isDarkMode={isDarkMode} />
+          <WeatherContainer/>
     </>
   );
 };
