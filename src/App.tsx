@@ -1,4 +1,10 @@
+import Layout from "./Layout/Layout";
+
 const App = () => {
-  return <>Weather app</>;
+  return (
+    <>
+      <Layout />
+    </>
+  );
 };
 export default App;
