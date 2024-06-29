@@ -25,10 +25,10 @@ const Layout = () => {
     }
   };
   return (
-    <>
-          <Header handleToggleTheme={handleToggleTheme} isDarkMode={isDarkMode} />
-          <WeatherContainer/>
-    </>
+    <div className="bg-linear-light dark:bg-linear-dark pb-2">
+      <Header handleToggleTheme={handleToggleTheme} isDarkMode={isDarkMode} />
+      <WeatherContainer />
+    </div>
   );
 };
 
