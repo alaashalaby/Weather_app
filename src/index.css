@@ -4,4 +4,13 @@
 @tailwind utilities;
 * {
   font-family: "Roboto", sans-serif;
+  @apply transition-colors duration-200
+}
+input,button{
+  outline: none;
+  border: none;
+  background-color: transparent;
+}
+button{
+  cursor: pointer;
 }
