@@ -11,12 +11,14 @@ type Props = {
   setIsSearchBarVisible: (value: boolean) => void;
   handleToggleTheme: () => void;
   isDarkMode: boolean;
+  handleGetCurrentLocation:()=>void
 };
 const HeaderIcons = ({
   isSearchBarVisible,
   setIsSearchBarVisible,
   handleToggleTheme,
   isDarkMode,
+  handleGetCurrentLocation,
 }: Props) => {
   const handleToggleSearchBar = () => {
     setIsSearchBarVisible(!isSearchBarVisible);
@@ -42,6 +44,7 @@ const HeaderIcons = ({
           <Button
             ariaLabel="current location"
             className="bg-light-300 dark:bg-dark-purpleColor"
+            onClick={handleGetCurrentLocation}
           >
             <BiCurrentLocation />
           </Button>

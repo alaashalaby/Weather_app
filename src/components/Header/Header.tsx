@@ -5,9 +5,14 @@ import SearchBar from "./SearchBar";
 type HeaderProps = {
   cityName: string;
   handleCityNameChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
+  handleGetCurrentLocation:()=>void
 };
-  const Header = ({ cityName, handleCityNameChange }: HeaderProps) => {
-  const [isSearchBarVisible, setIsSearchBarVisible] = useState(false);
+  const Header = ({
+    cityName,
+    handleCityNameChange,
+    handleGetCurrentLocation,
+  }: HeaderProps) => {
+    const [isSearchBarVisible, setIsSearchBarVisible] = useState(false);
     const [isDarkMode, setIsDarkMode] = useState(false);
     useEffect(() => {
       const themeFromLocalStorage = localStorage.getItem("theme");
@@ -29,24 +34,25 @@ type HeaderProps = {
         localStorage.setItem("theme", "light");
       }
     };
-  return (
-    <header className="bg-light-150 dark:bg-dark-primary pr-2 py-2 md:px-3 md:py-0 sticky inset-0 z-50 shadow-sm">
-      <div className="container mx-auto flex justify-between items-center relative">
-        <Logo />
-        <SearchBar
-          isSearchBarVisible={isSearchBarVisible}
-          cityName={cityName}
-          handleCityNameChange={handleCityNameChange}
-        />
-        <HeaderIcons
-          isSearchBarVisible={isSearchBarVisible}
-          setIsSearchBarVisible={setIsSearchBarVisible}
-          handleToggleTheme={handleToggleTheme}
-          isDarkMode={isDarkMode}
-        />
-      </div>
-    </header>
-  );
-};
+    return (
+      <header className="bg-light-150 dark:bg-dark-primary pr-2 py-2 md:px-3 md:py-0 sticky inset-0 z-50 shadow-sm">
+        <div className="container mx-auto flex justify-between items-center relative">
+          <Logo />
+          <SearchBar
+            isSearchBarVisible={isSearchBarVisible}
+            cityName={cityName}
+            handleCityNameChange={handleCityNameChange}
+          />
+          <HeaderIcons
+            isSearchBarVisible={isSearchBarVisible}
+            setIsSearchBarVisible={setIsSearchBarVisible}
+            handleToggleTheme={handleToggleTheme}
+            isDarkMode={isDarkMode}
+            handleGetCurrentLocation={handleGetCurrentLocation}
+          />
+        </div>
+      </header>
+    );
+  };
 
 export default Header;
