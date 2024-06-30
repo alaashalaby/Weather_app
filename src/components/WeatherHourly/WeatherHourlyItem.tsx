@@ -10,7 +10,7 @@ const WeatherHourlyItem = ({ forecast }:{forecast:Props}) => {
       <p className="text-light-300 dark:text-gray-400 text-lg ">{forecast && forecast.time}</p>
       <img
         src={forecast.icon}
-        className="w-10 m-auto"
+        className="w-20 m-auto"
         alt={forecast && forecast.description}
       />
       <p className="text-light-300 dark:text-gray-400 text-xl">
