@@ -28,17 +28,14 @@ export function filterTodayForecastData(forecastData: ForecastData): Array<{
   description: string;
   icon: string;
 }> {
-  const today = getDate(new Date());
-  return forecastData.list.filter((item) => {
+  return forecastData.list.map((item) => {
     const date = new Date(item.dt * 1000);
-    return getDate(date) === today;
-  }).map((item) => {
-    const date = new Date(item.dt * 1000);
+    const hours = date.getHours();
     return {
-      time: format(date, 'p'),
+      time:`${hours}:00`,
       temperature: item.main.temp,
       description: item.weather[0].description,
-      icon: `http://openweathermap.org/img/wn/${item.weather[0].icon}.png`
+      icon:`http://openweathermap.org/img/wn/${item.weather[0].icon}.png`
     };
   });
 }
