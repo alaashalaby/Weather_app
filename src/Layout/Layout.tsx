@@ -40,11 +40,15 @@ const Layout = () => {
           setForecastData(forecastResponse);
         }
         setIsLoading(false);
-      } catch (error: any) {
-        setError(
-          error.message ||
-            "Failed to fetch weather data, Please try again later"
-        );
+      } catch (error: AxiosError | unknown) {
+        if (error instanceof AxiosError) {
+          setError(
+            error.message ||
+              "Failed to fetch weather data, Please try again later"
+          );
+        } else {
+          setError("An unknown error occurred");
+        }
         setWeatherData(null);
         setAirPollution(null);
         setForecastData(null);
@@ -125,13 +129,15 @@ const Layout = () => {
       />
       {!isLoading && !weatherData && !cityName && <NoData />}
       {isLoading && <LoadingSpinner />}
-      {weatherData && (
-        <WeatherContainer
-          weatherData={weatherData}
-          airPollution={airPollution}
-          forecastData={forecastData}
-        />
-      )}
+      {weatherData &&
+        airPollution &&
+        forecastData&&(
+          <WeatherContainer
+            weatherData={weatherData}
+            airPollution={airPollution}
+            forecastData={forecastData}
+          />
+        )}
       {error && (
         <p className="text-red-500 text-center mt-7 text-3xl">{error}</p>
       )}
