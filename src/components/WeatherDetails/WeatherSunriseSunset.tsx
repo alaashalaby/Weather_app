@@ -1,5 +1,6 @@
 import { ReactNode } from "react";
 import { BiMoon, BiSun } from "react-icons/bi";
+import { FormatTime } from "../../util/FormatTime";
 type WeatherSunriseSunsetItemProps = {
     icon: ReactNode;
     content: string;
@@ -20,20 +21,20 @@ const WeatherSunriseSunsetItem = ({icon , content,time}:WeatherSunriseSunsetItem
       </div>
     );
 }
-const WeatherSunriseSunset = () => {
+const WeatherSunriseSunset = ({ weatherData }: { weatherData: WeatherData }) => {
     return (
       <div className=" bg-light-150 dark:bg-dark-thirty p-4 rounded-xl mt-5 flex-1">
         <h3 className="text-light-400 dark:text-gray-400">Sunrise & Sunset</h3>
         <div className="flex flex-col md:flex-row gap-8 md:gap-5 mt-10">
           <WeatherSunriseSunsetItem
-            icon={<BiSun />}
+            icon={<BiMoon />}
             content="Sunset"
-            time="6.35 AM"
+            time={FormatTime(weatherData && weatherData?.sys?.sunset)}
           />
           <WeatherSunriseSunsetItem
-            icon={<BiMoon />}
+            icon={<BiSun />}
             content="Sunrise"
-            time="9.24 PM"
+            time={FormatTime(weatherData&& weatherData?.sys?.sunrise)}
           />
         </div>
       </div>
