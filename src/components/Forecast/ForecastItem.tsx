@@ -14,13 +14,15 @@ const ForecastItem = ({ data }: { data: Props }) => {
           {data && data.temp}&deg;C
         </h4>
       </div>
-      <p className="text-light-300 dark:text-gray-400 text-xl">
-        {data && data.date}
-        {data && data.month}
-      </p>
-      <p className="text-light-300 dark:text-gray-400 text-xl">
-        {data && data.day}
-      </p>
+      <div className="flex items-center gap-3">
+        <p className="text-light-300 dark:text-gray-400 text-lg">
+          {data && data.date}
+          {data && data.month}
+        </p>
+        <p className="text-light-300 dark:text-gray-400 text-lg">
+          {data && data.day}
+        </p>
+      </div>
     </div>
   );
 };
