@@ -70,3 +70,50 @@ interface Components {
 interface Main {
   aqi: number;
 }
+
+interface ForecastData {
+  cod: string;
+  message: number;
+  cnt: number;
+  list: ForecastItem[];
+  city: City;
+}
+interface City {
+  id: number;
+  name: string;
+  coord: Coord;
+  country: string;
+  population: number;
+  timezone: number;
+  sunrise: number;
+  sunset: number;
+}
+interface ForecastItem {
+  dt: number;
+  main: ForecastMain;
+  weather: Weather[];
+  clouds: Clouds;
+  wind: Wind;
+  visibility: number;
+  pop: number;
+  sys: Sys;
+  dt_txt: string;
+  rain?: Rain;
+}
+interface Rain {
+  "3h": number;
+}
+interface Sys {
+  pod: string;
+}
+interface ForecastMain {
+  temp: number;
+  feels_like: number;
+  temp_min: number;
+  temp_max: number;
+  pressure: number;
+  sea_level: number;
+  grnd_level: number;
+  humidity: number;
+  temp_kf: number;
+}
