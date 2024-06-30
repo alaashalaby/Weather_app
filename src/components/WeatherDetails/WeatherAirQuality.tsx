@@ -18,7 +18,7 @@ const WeatherAirQualityItem = ({
     </div>
   );
 };
-const WeatherAirQuality = () => {
+const WeatherAirQuality = ({ airPollution }: { airPollution :AirPollutionData}) => {
   return (
     <div className="bg-light-150 dark:bg-dark-thirty p-4 rounded-xl mt-5">
       <div className="flex items-center justify-between">
@@ -31,10 +31,22 @@ const WeatherAirQuality = () => {
         <span className="text-5xl text-light-350 dark:text-dark-accent">
           <LuWind />
         </span>
-        <WeatherAirQualityItem dataName="PS2.5" dataValue={3.95} />
-        <WeatherAirQualityItem dataName="Q3.0" dataValue={3.95} />
-        <WeatherAirQualityItem dataName="SQ2" dataValue={3.05} />
-        <WeatherAirQualityItem dataName="Q3.0" dataValue={7.95} />
+        <WeatherAirQualityItem
+          dataName="PM2.5"
+          dataValue={airPollution && airPollution?.list[0]?.components?.pm2_5}
+        />
+        <WeatherAirQualityItem
+          dataName="NO2"
+          dataValue={airPollution && airPollution?.list[0]?.components?.no2}
+        />
+        <WeatherAirQualityItem
+          dataName="SO2"
+          dataValue={airPollution && airPollution?.list[0]?.components?.so2}
+        />
+        <WeatherAirQualityItem
+          dataName="O3.0"
+          dataValue={airPollution && airPollution?.list[0]?.components?.o3}
+        />
       </div>
     </div>
   );
