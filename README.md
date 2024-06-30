@@ -1,30 +1,33 @@
-# React + TypeScript + Vite
+# Weather App
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+This is a weather dashboard application built using React, TypeScript, and Tailwind CSS. It allows users to check the current weather and forecast for various cities around the world.
 
-Currently, two official plugins are available:
+## Features
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- Current Weather Display: Shows the current weather conditions including temperature, humidity, wind speed, and weather description.
+- Search by City: Users can enter the name of any city to get its weather information.
+- Dark/Light Theme Toggle: Supports a toggle switch to switch between dark and light themes.
+- Responsive Design: Designed to be responsive, ensuring a seamless experience across desktop and mobile Devices.
+- Hourly Forecast: Displays an hourly forecast for the next few hours in a horizontal scrollable format.
+- Location-Based Weather: Optionally fetches weather based on the user's current location.
 
-## Expanding the ESLint configuration
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+## Technologies
 
-- Configure the top-level `parserOptions` property like this:
+- React
+- Typescript
+- Tailwind CSS
+- useState & useEffect to State Managment
+- OPenWeatherMap API for Weather Data
 
-```js
-export default {
-  // other rules...
-  parserOptions: {
-    ecmaVersion: 'latest',
-    sourceType: 'module',
-    project: ['./tsconfig.json', './tsconfig.node.json'],
-    tsconfigRootDir: __dirname,
-  },
-}
-```
 
-- Replace `plugin:@typescript-eslint/recommended` to `plugin:@typescript-eslint/recommended-type-checked` or `plugin:@typescript-eslint/strict-type-checked`
-- Optionally add `plugin:@typescript-eslint/stylistic-type-checked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and add `plugin:react/recommended` & `plugin:react/jsx-runtime` to the `extends` list
+Final Screen In Dark Theme
+
+![DarkMode](https://github.com/alaashalaby/Weather_app/assets/80048047/4d7fafa4-ec9b-4482-9436-8b8770a419dc)
+
+
+Final Screen In Light Theme
+
+![LightMode](https://github.com/alaashalaby/Weather_app/assets/80048047/7fd8ec2e-ef50-4e16-90e2-73fd2dbd7612)
+
+
