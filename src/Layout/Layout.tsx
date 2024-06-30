@@ -7,6 +7,7 @@ import LoadingSpinner from "../LoadingSpinner/LoadingSpinner";
 import { fetchWeatherByCoordinates } from "../api/geoLocation";
 import { fetchAirPollutionData } from "../api/fetchAirPollution";
 import { fetchFiveDayForecast } from "../api/fetchForecastData";
+import { AxiosError } from "axios";
 const Layout = () => {
   const [cityName, setCityName] = useState<string>("");
   const [weatherData, setWeatherData] = useState<WeatherData | null>(null);
@@ -93,18 +94,22 @@ const Layout = () => {
               setForecastData(forecastResponse);
             }
             setIsLoading(false);
-          } catch (error: any) {
-            setError(
-              error.message ||
-                "Failed to fetch weather data, Please try again later"
-            );
+          } catch (error: AxiosError | unknown) {
+            if (error instanceof AxiosError) {
+              setError(
+                error.message ||
+                  "Failed to fetch weather data, Please try again later"
+              );
+            } else {
+              setError("An unknown error occurred");
+            }
             setWeatherData(null);
           } finally {
             setIsLoading(false);
           }
         },
-        (error) => {
-          setError("Failed to get Current Location");
+        (error ) => {
+          setError("Failed to get Current Location" || error.message);
         }
       );
     } else {
