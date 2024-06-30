@@ -102,11 +102,13 @@ const Layout = () => {
             if (error instanceof AxiosError) {
               setError(
                 error.message ||
-                "Failed to fetch weather data, Please try again later"
-              )
+                  "Failed to fetch weather data, Please try again later"
+              );
+            } else {
+              setError("An unknown error occurred");
             }
-          }
-            finally {
+            setWeatherData(null);
+          } finally {
             setIsLoading(false);
           }
         },
